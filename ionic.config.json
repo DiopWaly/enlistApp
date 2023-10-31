@@ -1,0 +1,7 @@
+{
+  "name": "enlistApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
