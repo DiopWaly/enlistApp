@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Ajout utilisateur</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-list [inset]="true" mode="ios">
+    <ion-item>
+      <ion-input labelPlacement="floating" type="text">
+        <div slot="label">Prenom <ion-text color="danger">*</ion-text></div>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input labelPlacement="floating" type="text">
+        <div slot="label">Nom <ion-text color="danger">*</ion-text></div>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input labelPlacement="floating" type="text">
+        <div slot="label">Telephone <ion-text color="danger">*</ion-text></div>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input labelPlacement="floating" type="text">
+        <div slot="label">Type piece <ion-text color="danger">*</ion-text></div>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input labelPlacement="floating" type="text">
+        <div slot="label">Numero piece <ion-text color="danger">*</ion-text></div>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input labelPlacement="floating" type="text">
+        <div slot="label">Photo piece <ion-text color="danger">*</ion-text></div>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-button (click)="save()">Valider</ion-button>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
