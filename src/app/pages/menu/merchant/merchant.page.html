@@ -8,9 +8,37 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">merchant</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="mainContent">
+    <ion-list [inset]="true" mode="ios">
+      <ion-item>
+        <ion-select labelPlacement="floating">
+          <div slot="label">Code Marchand<ion-text color="danger">*</ion-text></div>
+          <ion-select-option value="code-1">Code 1</ion-select-option>
+          <ion-select-option value="code-2">Code 2</ion-select-option>
+          <ion-select-option value="code-3">Code 3</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-input labelPlacement="floating" type="text">
+          <div slot="label">Intitule marchand <ion-text color="danger">*</ion-text></div>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input labelPlacement="floating" type="text">
+          <div slot="label">Telephone <ion-text color="danger">*</ion-text></div>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input labelPlacement="floating" type="text">
+          <div slot="label">Registre de commerce</div>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input labelPlacement="floating" type="text">
+          <div slot="label">Photo piece <ion-text color="danger">*</ion-text></div>
+        </ion-input>
+      </ion-item>
+      <ion-button (click)="takePhoto()" expand="block">Valider</ion-button>
+    </ion-list>
+  </div>
 </ion-content>

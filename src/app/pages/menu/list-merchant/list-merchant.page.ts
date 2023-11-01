@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-list-merchant',
@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-merchant.page.scss'],
 })
 export class ListMerchantPage implements OnInit {
-
-  constructor() { }
+  @Output() title: EventEmitter<string> = new EventEmitter();
+  constructor() {
+    this.title.emit('Utilisteur')
+   }
 
   ngOnInit() {
   }

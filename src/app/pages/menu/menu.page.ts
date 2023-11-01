@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { MenuController } from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.page.scss'],
 })
 export class MenuPage implements OnInit {
-
-  constructor() { }
+  public folder!: string;
+  private activatedRoute = inject(ActivatedRoute);
+  constructor(private menuCtrl: MenuController) { }
 
   ngOnInit() {
+    console.log(this.activatedRoute.snapshot);  
+  }
+
+  ionViewWillEnter() {
+    this.menuCtrl.enable(true);
   }
 
 }

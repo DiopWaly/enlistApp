@@ -24,3 +24,48 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+ion-header {
+
+    background-color: #5a55ca;
+}
+
+ion-toolbar {
+
+    --border-style: none;
+    --background: #5a55ca;
+    --color: white;
+    --min-height: 8rem;
+
+    // --stripe: #645fd1;
+    --stripe: #5a55ca;
+    --bg: #645fd1;
+    --background: transparent;
+    background: linear-gradient(135deg, var(--bg) 25%, transparent 25%) -50px 0,
+    linear-gradient(225deg, var(--bg) 25%, transparent 25%) -50px 0,
+    linear-gradient(315deg, var(--bg) 25%, transparent 25%),
+    linear-gradient(45deg, var(--bg) 25%, transparent 25%);
+    background-size: 100px 100px;
+    background-color: var(--stripe);
+
+    ion-button {
+
+        font-size: 1.2rem;
+        font-weight: 800;
+    }
+}
+
+ion-content {
+    --background: #5a55ca;
+    overflow: hidden;
+}
+.mainContent {
+
+
+    background-color: #e7edfb;
+    height: 100%;
+    width: 100%;
+    overflow: scroll !important;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}

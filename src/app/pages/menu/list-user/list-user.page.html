@@ -3,14 +3,33 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
+    <!-- <ion-buttons slot="end">
+      <ion-back-button defaultHref="login"></ion-back-button>
+    </ion-buttons> -->
     <ion-title>Utilisateurs</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">listUser</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="mainContent">
+    <ion-card-subtitle class="title">Awesome Subtitle</ion-card-subtitle>
+    <ion-searchbar placeholder="Search..."></ion-searchbar>
+    <ion-list lines="none">
+      <ion-item class="Item" *ngFor="let item of [1,2,3,4]">
+        <ion-avatar>
+          <img src="../../../../assets/images/user.jpg" />
+        </ion-avatar>
+        <ion-label>
+          <h2>Papa Waly Diop</h2>
+          <p>Boutiquier</p>
+        </ion-label>
+        <ion-button>
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>
+<ion-footer>
+  <ion-button expand="block">Ajout utilisateur</ion-button>
+</ion-footer>
