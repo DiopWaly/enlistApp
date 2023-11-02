@@ -9,45 +9,47 @@
 
 <ion-content [fullscreen]="true">
   <div class="mainContent">
-    <ion-list [inset]="true" mode="ios">
-      <ion-item>
-        <ion-input labelPlacement="floating" type="text">
-          <div slot="label">Prenom <ion-text color="danger">*</ion-text></div>
-        </ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input labelPlacement="floating" type="text">
-          <div slot="label">Nom <ion-text color="danger">*</ion-text></div>
-        </ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input labelPlacement="floating" type="text">
-          <div slot="label">Telephone <ion-text color="danger">*</ion-text></div>
-        </ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-select labelPlacement="floating">
-          <div slot="label">Type piece <ion-text color="danger">*</ion-text></div>
-          <ion-select-option value="nci">Numero carte d'identite</ion-select-option>
-          <ion-select-option value="np">Permis de conduire</ion-select-option>
-          <ion-select-option value="passport">Passe port</ion-select-option>
-        </ion-select>
-        <!-- <ion-input labelPlacement="floating" type="text">
-          <div slot="label">Type piece <ion-text color="danger">*</ion-text></div>
-        </ion-input> -->
-      </ion-item>
-      <ion-item>
-        <ion-input labelPlacement="floating" type="text">
-          <div slot="label">Numero piece <ion-text color="danger">*</ion-text></div>
-        </ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input labelPlacement="floating" type="text">
-          <div slot="label">Photo piece <ion-text color="danger">*</ion-text></div>
-        </ion-input>
-      </ion-item>
-      <ion-button (click)="save()" expand="block">Valider</ion-button>
-    </ion-list>
+    <form [formGroup]="userForm" (ngSubmit)="save()">
+      <ion-list [inset]="true" mode="ios">
+        <ion-item>
+          <ion-input labelPlacement="floating" type="text" formControlName="firstName">
+            <div slot="label">Prenom <ion-text color="danger">*</ion-text></div>
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input labelPlacement="floating" type="text" formControlName="lastName">
+            <div slot="label">Nom <ion-text color="danger">*</ion-text></div>
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input labelPlacement="floating" type="text" formControlName="tel">
+            <div slot="label">Telephone <ion-text color="danger">*</ion-text></div>
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-select labelPlacement="floating" formControlName="pieceType">
+            <div slot="label">Type de piece</div>
+            <ion-select-option value="nci">Numero carte d'identite</ion-select-option>
+            <ion-select-option value="np">Permis de conduire</ion-select-option>
+            <ion-select-option value="passport">Passe port</ion-select-option>
+          </ion-select>
+          <!-- <ion-input labelPlacement="floating" type="text">
+            <div slot="label">Type piece <ion-text color="danger">*</ion-text></div>
+          </ion-input> -->
+        </ion-item>
+        <ion-item>
+          <ion-input labelPlacement="floating" type="text" formControlName="pieceNum">
+            <div slot="label">Numero piece </div>
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input labelPlacement="floating" type="text">
+            <div slot="label">Photo piece </div>
+          </ion-input>
+        </ion-item>
+        <ion-button type="submit" expand="block" [disabled]="userForm.invalid">Enregistrer</ion-button>
+      </ion-list>
+    </form>
   </div>
 
 </ion-content>

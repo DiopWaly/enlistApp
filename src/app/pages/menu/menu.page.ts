@@ -13,7 +13,6 @@ export class MenuPage implements OnInit {
   constructor(private menuCtrl: MenuController) { }
 
   ngOnInit() {
-    console.log(this.activatedRoute.snapshot);  
   }
 
   ionViewWillEnter() {

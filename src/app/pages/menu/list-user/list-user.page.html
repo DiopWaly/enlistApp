@@ -12,7 +12,7 @@
 
 <ion-content [fullscreen]="true">
   <div class="mainContent">
-    <ion-card-subtitle class="title">Awesome Subtitle</ion-card-subtitle>
+    <!-- <ion-card-subtitle class="title">Awesome Subtitle</ion-card-subtitle> -->
     <ion-searchbar placeholder="Search..."></ion-searchbar>
     <ion-list lines="none">
       <ion-item class="Item" *ngFor="let item of [1,2,3,4]">
@@ -24,6 +24,7 @@
           <p>Boutiquier</p>
         </ion-label>
         <ion-button>
+          <!-- <ion-icon name="trash-outline"></ion-icon> -->
           <ion-icon name="trash-outline"></ion-icon>
         </ion-button>
       </ion-item>
@@ -31,5 +32,5 @@
   </div>
 </ion-content>
 <ion-footer>
-  <ion-button expand="block">Ajout utilisateur</ion-button>
+  <ion-button [routerLink]="['/menu/user/add']" routerLinkActive="router-link-active"  expand="block">Ajout utilisateur</ion-button>
 </ion-footer>

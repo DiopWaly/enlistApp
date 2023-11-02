@@ -9,36 +9,52 @@
 
 <ion-content [fullscreen]="true">
   <div class="mainContent">
-    <ion-list [inset]="true" mode="ios">
-      <ion-item>
-        <ion-select labelPlacement="floating">
-          <div slot="label">Code Marchand<ion-text color="danger">*</ion-text></div>
-          <ion-select-option value="code-1">Code 1</ion-select-option>
-          <ion-select-option value="code-2">Code 2</ion-select-option>
-          <ion-select-option value="code-3">Code 3</ion-select-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-input labelPlacement="floating" type="text">
-          <div slot="label">Intitule marchand <ion-text color="danger">*</ion-text></div>
-        </ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input labelPlacement="floating" type="text">
-          <div slot="label">Telephone <ion-text color="danger">*</ion-text></div>
-        </ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input labelPlacement="floating" type="text">
-          <div slot="label">Registre de commerce</div>
-        </ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input labelPlacement="floating" type="text">
-          <div slot="label">Photo piece <ion-text color="danger">*</ion-text></div>
-        </ion-input>
-      </ion-item>
-      <ion-button (click)="takePhoto()" expand="block">Valider</ion-button>
-    </ion-list>
+    <form [formGroup]="merchantForm" (ngSubmit)="save()">
+      <ion-list [inset]="true" mode="ios">
+        <ion-item>
+          <ion-select labelPlacement="floating" formControlName="merchantCode">
+            <div slot="label">Code Marchand <ion-text color="danger">*</ion-text></div>
+            <ion-select-option value="code-1">Code 1</ion-select-option>
+            <ion-select-option value="code-2">Code 2</ion-select-option>
+            <ion-select-option value="code-3">Code 3</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-input labelPlacement="floating" type="text" formControlName="merchantTitle">
+            <div slot="label">Intitule marchand <ion-text color="danger">*</ion-text></div>
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input labelPlacement="floating" type="text" formControlName="tel">
+            <div slot="label">Telephone <ion-text color="danger">*</ion-text></div>
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input labelPlacement="floating" type="text" formControlName="commercialRegister">
+            <div slot="label">Registre de commerce</div>
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input labelPlacement="floating" type="text">
+            <div slot="label">Photo piece </div>
+          </ion-input>
+        </ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6" *ngFor="let photo of photos; index as position">
+              <div class="pieceView" (click)="takePhoto(position)">
+                <ion-button expand="block" fill="clear">
+                  <ion-img [src]="photo.webviewPath"></ion-img>
+                </ion-button>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-item lines="none" class="previewItem">
+          <qrcode [qrdata]="merchantForm.value.merchantCode" [width]="150" [allowEmptyString]="true" [margin]="1" [scale]="4" [errorCorrectionLevel]="'H'"></qrcode>
+        </ion-item>
+        <ion-button type="submit" expand="block" [disabled]="merchantForm.invalid">Enregistrer</ion-button>
+      </ion-list>
+    </form>
   </div>
 </ion-content>

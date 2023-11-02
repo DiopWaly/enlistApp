@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-merchant',
@@ -7,7 +8,9 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class ListMerchantPage implements OnInit {
   @Output() title: EventEmitter<string> = new EventEmitter();
-  constructor() {
+  constructor(
+    private router: Router
+  ) {
     this.title.emit('Utilisteur')
    }
 

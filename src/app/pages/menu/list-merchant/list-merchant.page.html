@@ -9,7 +9,7 @@
 
 <ion-content [fullscreen]="true">
   <div class="mainContent">
-    <ion-card-subtitle class="title">Awesome Subtitle</ion-card-subtitle>
+    <!-- <ion-card-subtitle class="title">Awesome Subtitle</ion-card-subtitle> -->
     <ion-searchbar placeholder="Search..."></ion-searchbar>
     <ion-list lines="none">
       <ion-item class="Item" *ngFor="let item of [1,2,3,4]">
@@ -28,5 +28,5 @@
   </div>
 </ion-content>
 <ion-footer>
-  <ion-button expand="block">Ajout marchand</ion-button>
+  <ion-button expand="block" [routerLink]="['/menu/merchant/add']" routerLinkActive="router-link-active">Ajout marchand</ion-button>
 </ion-footer>
