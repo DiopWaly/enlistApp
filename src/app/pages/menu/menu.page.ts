@@ -1,6 +1,8 @@
+import { Router } from '@angular/router';
 import { Component, OnInit, inject } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-menu',
@@ -8,16 +10,24 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./menu.page.scss'],
 })
 export class MenuPage implements OnInit {
-  public folder!: string;
-  private activatedRoute = inject(ActivatedRoute);
-  constructor(private menuCtrl: MenuController) { }
-
-  ngOnInit() {
-    console.log(this.activatedRoute.snapshot);  
-  }
+  private activeButtonSubject!: BehaviorSubject<boolean>
+  activateButton$!: Observable<boolean>;
+  constructor(private menuCtrl: MenuController,private router: Router) { }
 
   ionViewWillEnter() {
     this.menuCtrl.enable(true);
+  }
+  ngOnInit() {
+    this.activeButtonSubject = new BehaviorSubject<boolean>(true)
+    this.activateButton$ = this.activeButtonSubject.asObservable(); 
+  }
+  users(){
+    this.router.navigate(['menu/user/list'])
+    this.activeButtonSubject.next(true);
+  }
+  merchants(){
+    this.router.navigate(['menu/merchant/list'])
+    this.activeButtonSubject.next(false)
   }
 
 }

@@ -28,6 +28,8 @@
 ion-header {
 
     background-color: #5a55ca;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
 
 ion-toolbar {
@@ -35,7 +37,7 @@ ion-toolbar {
     --border-style: none;
     --background: #5a55ca;
     --color: white;
-    --min-height: 8rem;
+    --min-height: 9rem;
 
     // --stripe: #645fd1;
     --stripe: #5a55ca;
@@ -47,16 +49,18 @@ ion-toolbar {
     linear-gradient(45deg, var(--bg) 25%, transparent 25%);
     background-size: 100px 100px;
     background-color: var(--stripe);
-
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
     ion-button {
-
         font-size: 1.2rem;
         font-weight: 800;
     }
+    // padding-bottom: 15px;
 }
 
 ion-content {
     --background: #5a55ca;
+    // --background: #fff;
     overflow: hidden;
 }
 .mainContent {
@@ -66,6 +70,6 @@ ion-content {
     height: 100%;
     width: 100%;
     overflow: scroll !important;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
+    // border-top-left-radius: 30px;
+    // border-top-right-radius: 30px;
 }
