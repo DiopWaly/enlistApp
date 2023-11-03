@@ -15,6 +15,12 @@
     <ion-input id="password" labelPlacement="floating" type="text">
       <div slot="label">Login <ion-text color="danger">*</ion-text></div>
     </ion-input>
+    <!-- <mat-form-field appearance="outline">
+      <mat-label>Outline form field</mat-label>
+      <input matInput placeholder="Placeholder">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>  -->
   </ion-item>
   <ion-item>
     <ion-input  id="password" labelPlacement="floating" type="password">
@@ -22,7 +28,7 @@
     </ion-input>
 
   </ion-item>
-  <ion-button mode="ios" (click)="login()">Valider</ion-button>
+  <ion-button mode="ios" (click)="login()" expand="block">Valider</ion-button>
 </ion-list>
 
 </ion-content>
