@@ -25,13 +25,15 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-ion-header {
+// font
+@import "./assets/fonts/font.scss";
 
+ion-header {
     background-color: #5a55ca;
 }
 
 ion-toolbar {
-
+    // font-family: 'Gilroy-Extra-Bold';
     --border-style: none;
     --background: #5a55ca;
     --color: white;
@@ -60,8 +62,6 @@ ion-content {
     overflow: hidden;
 }
 .mainContent {
-
-
     background-color: #e7edfb;
     height: 100%;
     width: 100%;
@@ -69,3 +69,12 @@ ion-content {
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
 }
+ ion-item ion-input, ion-select{
+    font-family: 'Rawson-SemiBold';
+    div{
+        font-family: 'Rawson-LightIt';
+    }
+ }
+//  .alert-wrapper.sc-ion-alert-ios{
+//     background-color: #e7edfb;
+// }

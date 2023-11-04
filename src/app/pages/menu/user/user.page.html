@@ -15,17 +15,44 @@
           <ion-input labelPlacement="floating" type="text" formControlName="firstName">
             <div slot="label">Prenom <ion-text color="danger">*</ion-text></div>
           </ion-input>
+          <ion-icon name="checkmark-sharp" color="success"></ion-icon>
         </ion-item>
+        <div class="error-container">
+          <ng-container *ngFor="let validation of validation_messages.firstName">
+            <div class="error-message" *ngIf="userForm.get('firstName')?.hasError(validation.type) && (userForm.get('firstName')?.dirty || userForm.get('firstName')?.touched)">
+              <ion-icon name="information-circle-outline"></ion-icon>
+              <span>{{ validation.message }}</span>
+            </div>
+          </ng-container>
+        </div>
         <ion-item>
           <ion-input labelPlacement="floating" type="text" formControlName="lastName">
             <div slot="label">Nom <ion-text color="danger">*</ion-text></div>
           </ion-input>
+          <ion-icon name="checkmark-sharp" color="success"></ion-icon>
         </ion-item>
+        <div class="error-container">
+          <ng-container *ngFor="let validation of validation_messages.lastName">
+            <div class="error-message" *ngIf="userForm.get('lastName')?.hasError(validation.type) && (userForm.get('lastName')?.dirty || userForm.get('lastName')?.touched)">
+              <ion-icon name="information-circle-outline"></ion-icon>
+              <span>{{ validation.message }}</span>
+            </div>
+          </ng-container>
+        </div>
         <ion-item>
-          <ion-input labelPlacement="floating" type="text" formControlName="tel">
+          <ion-input labelPlacement="floating" type="number" formControlName="tel">
             <div slot="label">Telephone <ion-text color="danger">*</ion-text></div>
           </ion-input>
+          <ion-icon name="checkmark-sharp" color="success"></ion-icon>
         </ion-item>
+        <div class="error-container">
+          <ng-container *ngFor="let validation of validation_messages.tel">
+            <div class="error-message" *ngIf="userForm.get('tel')?.hasError(validation.type) && (userForm.get('tel')?.dirty || userForm.get('tel')?.touched)">
+              <ion-icon name="information-circle-outline"></ion-icon>
+              <span>{{ validation.message }}</span>
+            </div>
+          </ng-container>
+        </div>
         <ion-item>
           <ion-select labelPlacement="floating" formControlName="pieceType">
             <div slot="label">Type de piece</div>
@@ -42,11 +69,31 @@
             <div slot="label">Numero piece </div>
           </ion-input>
         </ion-item>
-        <ion-item>
+        <!-- <ion-item>
           <ion-input labelPlacement="floating" type="text">
             <div slot="label">Photo piece </div>
           </ion-input>
-        </ion-item>
+        </ion-item> -->
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6">
+              <ion-label>Recto pièce</ion-label>
+              <div class="pieceView" (click)="takePhoto(0)">
+                <ion-button expand="block" fill="clear">
+                  <ion-img [src]="photos[0].webviewPath"></ion-img>
+                </ion-button>
+              </div>
+            </ion-col>
+            <ion-col size="6">
+              <ion-label>Verso du pièce</ion-label>
+              <div class="pieceView" (click)="takePhoto(1)">
+                <ion-button expand="block" fill="clear">
+                  <ion-img [src]="photos[1].webviewPath"></ion-img>
+                </ion-button>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
         <ion-button type="submit" expand="block" [disabled]="userForm.invalid">Enregistrer</ion-button>
       </ion-list>
     </form>

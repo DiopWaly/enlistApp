@@ -74,7 +74,7 @@ ion-footer {
         padding-left: 1.2rem;
 
         h2 {
-
+            font-family: 'Gilroy-Extra-Bold';
             font-weight: 600;
             letter-spacing: -0.02rem;
         }
@@ -86,7 +86,6 @@ ion-footer {
     }
 
     ion-button {
-
         --background: #5a55ca;
         --background-focused: #6f6bbb;
         --background-activated: #6f6bbb;
@@ -96,4 +95,7 @@ ion-footer {
         --padding-end: 0.75rem;
         margin-top: -0.2rem;
     }
+}
+.syncIcon{
+    margin-right: 1rem;
 }

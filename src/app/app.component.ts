@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
   ) {
   }
   ngOnInit(): void {
+    // "@angular/material/prebuilt-themes/indigo-pink.css", 
     this.dbService.createOpenDatabase()
   }
 }

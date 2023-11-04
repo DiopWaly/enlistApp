@@ -11,14 +11,14 @@
   <div class="mainContent">
     <!-- <ion-card-subtitle class="title">Awesome Subtitle</ion-card-subtitle> -->
     <ion-searchbar placeholder="Search..."></ion-searchbar>
-    <ion-list lines="none">
-      <ion-item class="Item" *ngFor="let item of [1,2,3,4]">
+    <ion-list lines="none" *ngIf="merchantsObs$ | async">
+      <ion-item class="Item" *ngFor="let merchant of merchants">
         <ion-avatar>
           <img src="../../../../assets/images/user.jpg" />
         </ion-avatar>
         <ion-label>
-          <h2>Papa Waly Diop</h2>
-          <p>Boutiquier</p>
+          <h2>{{merchant.merchantTitle}}</h2>
+          <p>{{merchant.tel}}</p>
         </ion-label>
         <ion-button>
           <ion-icon name="trash-outline"></ion-icon>

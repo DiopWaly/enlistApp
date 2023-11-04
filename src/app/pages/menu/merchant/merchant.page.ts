@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
+import { DatabaseService } from 'src/app/services/database.service';
+import { StructureDB } from 'src/app/services/structure-db';
 
 @Component({
   selector: 'app-merchant',
@@ -12,7 +15,9 @@ export class MerchantPage implements OnInit {
   merchantForm!: FormGroup
   photos!: UserPhoto[];
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private dbService: DatabaseService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -45,6 +50,13 @@ export class MerchantPage implements OnInit {
     }
   }
   save(){
+    this.dbService.insertData(StructureDB.MERCHANT,this.merchantForm.value)
+      .then(() => {
+        console.log('record insert')
+        this.merchantForm.reset();
+        this.router.navigate(['/menu/merchant/list'])
+      })
+      .catch(e => console.log(JSON.stringify(e)))
   }
 
 }
