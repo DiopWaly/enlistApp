@@ -39,12 +39,15 @@ export class ListUserPage implements OnInit {
       .catch(e => console.log(JSON.stringify(e)))
   }
   showDetailUser(user: any){
-    console.log('yup');
     this.userDetail = user
     this.userDetailSubject.next(true)
   }
   backToList(){
     this.userDetailSubject.next(false)
+  }
+  testFab(){
+    console.log('fab');
+    
   }
 }
 

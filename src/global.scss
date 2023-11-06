@@ -29,18 +29,18 @@
 @import "./assets/fonts/font.scss";
 
 ion-header {
-    background-color: #5a55ca;
+    background-color: var(--primary);
 }
 
 ion-toolbar {
     // font-family: 'Gilroy-Extra-Bold';
     --border-style: none;
-    --background: #5a55ca;
+    --background: var(--primary);
     --color: white;
-    --min-height: 8rem;
+    // --min-height: 8rem;
 
     // --stripe: #645fd1;
-    --stripe: #5a55ca;
+    --stripe: var(--primary);
     --bg: #645fd1;
     --background: transparent;
     background: linear-gradient(135deg, var(--bg) 25%, transparent 25%) -50px 0,
@@ -58,11 +58,11 @@ ion-toolbar {
 }
 
 ion-content {
-    --background: #5a55ca;
+    --background: var(--primary);
     overflow: hidden;
 }
 .mainContent {
-    background-color: #e7edfb;
+    background-color: var(--secondary);
     height: 100%;
     width: 100%;
     overflow: scroll !important;
@@ -75,6 +75,3 @@ ion-content {
         font-family: 'Rawson-LightIt';
     }
  }
-//  .alert-wrapper.sc-ion-alert-ios{
-//     background-color: #e7edfb;
-// }

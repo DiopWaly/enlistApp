@@ -9,14 +9,14 @@ ion-card-subtitle {
 
 .title {
 
-    --color: #5a55ca;
+    --color: var(--primary);
 }
 
 ion-searchbar {
 
     --border-radius: 10px;
     --background: white;
-    --color: black;
+    --color: var(--tertiary);
     min-height: 5rem;
     padding: 1rem;
     padding-top: 0;
@@ -25,17 +25,17 @@ ion-searchbar {
 
 ion-list {
 
-    background-color: #e7edfb;
+    background-color: var(--secondary);
 }
 
 ion-footer {
 
-    background-color: #e7edfb;
+    background-color: var(--secondary);
     padding: 1rem;
 
     ion-button {
 
-        --background: #5a55ca;
+        --background: var(--primary);
         --background-focused: #6f6bbb;
         --background-activated: #6f6bbb;
         --padding-top: 1rem;
@@ -86,7 +86,7 @@ ion-footer {
     }
 
     ion-button {
-        --background: #5a55ca;
+        --background: var(--primary);
         --background-focused: #6f6bbb;
         --background-activated: #6f6bbb;
         --padding-top: 1rem;
@@ -99,3 +99,5 @@ ion-footer {
 .syncIcon{
     margin-right: 1rem;
 }
+
+// 

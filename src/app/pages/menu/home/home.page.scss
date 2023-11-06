@@ -1,0 +1,62 @@
+.homeMainContent{
+    background-color: var(--secondary);
+    width: 100%;
+    height: 100%;
+}
+.header{
+    ion-buttons{
+        color: var(--primary);
+    }
+    .notification{
+        position: absolute;
+        top: .5rem;
+        right: 0;
+    }
+    img{
+        width: 5rem;
+        max-height: 5rem;
+        border-radius: 0.5rem;
+        margin-left: auto !important;
+        // margin-right: 1rem;
+    }
+    .profileUser{
+        padding-left: .3rem;
+        padding-right: .3rem;
+        .hello{
+            padding-left: 0;
+            ion-note{
+                font-family: 'Gilroy-Semi-BoldIt';
+                font-size: 1.1rem;
+                color: #00000082;
+            }
+        }
+        ion-label{
+            font-family: 'Gilroy-Bold';
+            font-size: 1.4rem;
+            .last-name{
+                color: var(--primary);
+            }
+        }
+    }
+}
+.homeMenu{
+    margin-bottom: 1rem;
+    ion-col{
+        ion-card{
+            margin: 0 auto;
+            width: 100%;
+            min-width: 8rem;
+            text-align: center;
+            font-family: 'Gilroy-Extra-Bold';
+            border-radius: 1rem;
+            ion-icon{
+                font-size: 1.7rem;
+                color: var(--primary);
+            }
+        }
+    }
+}
+.menu-title{
+    font-family: 'Gilroy-Ultra-Light';
+    font-weight: 600;
+}

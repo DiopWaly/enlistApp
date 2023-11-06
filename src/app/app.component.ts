@@ -8,6 +8,7 @@ import { SQLiteObject } from '@awesome-cordova-plugins/sqlite';
 })
 export class AppComponent implements OnInit {
   public appPages = [
+    { title: 'Accueil', url: '/menu/home', icon: 'home' },
     { title: 'Ajouter utilisateur', url: '/menu/user/add', icon: 'person-add' },
     { title: 'Liste utilisateur', url: '/menu/user/list', icon: 'people' },
     { title: 'Ajouter marchand', url: '/menu/merchant/add', icon: 'paper-plane' },

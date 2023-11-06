@@ -23,10 +23,30 @@
     src: url("./arial/Arial-Regular.ttf");
   }
   @font-face {
+    font-family: 'Gilroy-Regular';
+    src: url("./gilroy/Gilroy-Regular.ttf");
+  }
+  @font-face {
+    font-family: 'Gilroy-Bold';
+    src: url("./gilroy/Gilroy-Bold.ttf");
+  }
+  @font-face {
+    font-family: 'Gilroy-Semi-Bold';
+    src: url("./gilroy/Gilroy-SemiBold.ttf");
+  }
+  @font-face {
+    font-family: 'Gilroy-Semi-BoldIt';
+    src: url("./gilroy/Gilroy-SemiBoldItalic.ttf");
+  }
+  @font-face {
     font-family: 'Gilroy-BoldIt';
     src: url("./gilroy/Gilroy-BoldItalic.ttf");
   }
   @font-face {
     font-family: 'Gilroy-Extra-Bold';
     src: url("./gilroy/Gilroy-ExtraBold.ttf");
+  }
+  @font-face {
+    font-family: 'Gilroy-Ultra-Light';
+    src: url("./gilroy/Gilroy-UltraLight.ttf");
   }

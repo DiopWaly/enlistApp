@@ -9,7 +9,7 @@ ion-card-subtitle {
 
 .title {
 
-    --color: #5a55ca;
+    --color: var(--primary);
 }
 
 ion-searchbar {
@@ -25,17 +25,17 @@ ion-searchbar {
 
 ion-list {
 
-    background-color: #e7edfb;
+    background-color: var(--secondary);
 }
 
 ion-footer {
 
-    background-color: #e7edfb;
+    background-color: var(--secondary);
     padding: 1rem;
 
     ion-button {
 
-        --background: #5a55ca;
+        --background: var(--primary);
         --background-focused: #6f6bbb;
         --background-activated: #6f6bbb;
         --padding-top: 1rem;
@@ -61,11 +61,6 @@ ion-footer {
     min-height: 5rem;
     ion-avatar {
         --border-radius: 10px;
-        // img { 
-        //     width: 3rem;
-        //     border-radius: 10px;
-        //     border: 2px solid #e7edfb;
-        // }
         zoom: 1.3;
     }
 
@@ -87,7 +82,7 @@ ion-footer {
 
     ion-button {
 
-        --background: #5a55ca;
+        --background: var(--primary);
         --background-focused: #6f6bbb;
         --background-activated: #6f6bbb;
         --padding-top: 1rem;
