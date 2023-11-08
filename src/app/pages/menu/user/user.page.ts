@@ -53,14 +53,16 @@ export class UserPage implements OnInit {
     }
   }
   save(){
-    this.dbService.insertData(StructureDB.USER,this.userForm.value)
-      .then(() => {
-        console.log('record insert')
-        this.userForm.reset();
-        this.router.navigate(['/menu/user/list'])
-      })
-      .catch(e => console.log(JSON.stringify(e)))
-  }
+    if (this.userForm.valid) {
+      this.dbService.insertData(StructureDB.USER,this.userForm.value)
+        .then(() => {
+          console.log('record insert')
+          this.userForm.reset();
+          this.router.navigate(['/menu/user/list'])
+        })
+        .catch(e => console.log(JSON.stringify(e)))
+      }
+    }
 }
 export interface UserPhoto {
   filepath: string;

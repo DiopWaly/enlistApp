@@ -3,16 +3,21 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="menu/home"></ion-back-button>
+    </ion-buttons>
     <ion-title>Marchands</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="mainContent">
+  <div class="mainContent" >
     <!-- <ion-card-subtitle class="title">Awesome Subtitle</ion-card-subtitle> -->
-    <ion-searchbar placeholder="Search..."></ion-searchbar>
-    <ion-list lines="none" *ngIf="merchantsObs$ | async">
-      <ion-item class="Item" *ngFor="let merchant of merchants">
+    <ion-searchbar placeholder="Search..." [debounce]="100" (ionInput)="handleInput($event)"></ion-searchbar>
+    <!-- <ion-list lines="none" *ngIf="merchantsObs$ | async"> -->
+    <ion-list lines="none" *ngIf="merchantRechercheObs$ | async as merchantsOb">
+      <!-- <ion-item class="Item" *ngFor="let merchant of merchants"> -->
+      <ion-item class="Item" *ngFor="let merchant of merchantsOb">
         <ion-avatar>
           <img src="../../../../assets/images/user.jpg" />
         </ion-avatar>

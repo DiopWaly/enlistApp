@@ -10,7 +10,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'user/list',
+        redirectTo: 'home',
         pathMatch: 'full'
       },
       {
@@ -29,11 +29,11 @@ const routes: Routes = [
         path: 'merchant/list',
         loadChildren: () => import('./list-merchant/list-merchant.module').then( m => m.ListMerchantPageModule)
       },
+      {
+        path: 'home',
+        loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+      },
     ]
-  },
-  {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
 
 

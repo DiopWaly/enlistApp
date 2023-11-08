@@ -1,0 +1,27 @@
+// {
+//     background-color: var(--secondary);
+// }
+
+.container {
+    position: relative;
+  }
+  
+  .vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 35%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 100%;
+  }
+  .profilIcon{
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--white);
+    font-family: 'Gilroy-Extra-Bold';
+    h1{
+        margin-bottom: 3rem;
+    }
+  }
+
+//   

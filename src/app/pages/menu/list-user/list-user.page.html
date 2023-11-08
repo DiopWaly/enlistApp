@@ -3,9 +3,9 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <!-- <ion-buttons slot="end">
-      <ion-back-button defaultHref="login"></ion-back-button>
-    </ion-buttons> -->
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="menu/home"></ion-back-button>
+    </ion-buttons>
     <ion-title>Utilisateurs</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,10 +13,12 @@
 <ion-content [fullscreen]="true">
   <div class="mainContent">
     <!-- <ion-card-subtitle class="title">Awesome Subtitle</ion-card-subtitle> -->
+    <!-- {{userRechercheObs$ | async | json}} -->
     <div *ngIf="(usersObs$ | async) && !(userDetailObs$ | async)">
-      <ion-searchbar placeholder="Search..." ></ion-searchbar>
-      <ion-list lines="none">
-        <ion-item class="Item" *ngFor="let user of users" (click)="showDetailUser(user)">
+      <ion-searchbar placeholder="Search..." [debounce]="100" (ionInput)="handleInput($event)"></ion-searchbar>
+      <ion-list lines="none" *ngIf="userRechercheObs$ | async as userObs">
+        <!-- <ion-item class="Item" *ngFor="let user of users" (click)="showDetailUser(user)"> -->
+        <ion-item class="Item" *ngFor="let user of userObs" (click)="showDetailUser(user)">
           <ion-avatar>
             <img src="../../../../assets/images/user.jpg" />
           </ion-avatar>
@@ -52,6 +54,10 @@
         </ion-button>
       </ion-item>
     </ion-list>
+    <!-- <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll> -->
+    
     <!-- <div *ngIf="userDetailObs$ | async"> -->
     <div *ngIf="false">
       <app-user-details [user]="userDetail"></app-user-details>

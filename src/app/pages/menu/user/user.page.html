@@ -16,9 +16,9 @@
       <ion-list [inset]="true" mode="ios">
         <ion-item>
           <ion-input labelPlacement="floating" type="text" formControlName="firstName">
-            <div slot="label">Prenom <ion-text color="danger">*</ion-text></div>
+            <div slot="label">Prénom <ion-text color="danger">*</ion-text></div>
           </ion-input>
-          <ion-icon name="checkmark-sharp" color="success"></ion-icon>
+          <!-- <ion-icon name="checkmark-sharp" color="success"></ion-icon> -->
         </ion-item>
         <div class="error-container">
           <ng-container *ngFor="let validation of validation_messages.firstName">
@@ -32,7 +32,7 @@
           <ion-input labelPlacement="floating" type="text" formControlName="lastName">
             <div slot="label">Nom <ion-text color="danger">*</ion-text></div>
           </ion-input>
-          <ion-icon name="checkmark-sharp" color="success"></ion-icon>
+          <!-- <ion-icon name="checkmark-sharp" color="success"></ion-icon> -->
         </ion-item>
         <div class="error-container">
           <ng-container *ngFor="let validation of validation_messages.lastName">
@@ -44,9 +44,9 @@
         </div>
         <ion-item>
           <ion-input labelPlacement="floating" type="number" formControlName="tel">
-            <div slot="label">Telephone <ion-text color="danger">*</ion-text></div>
+            <div slot="label">Téléphone <ion-text color="danger">*</ion-text></div>
           </ion-input>
-          <ion-icon name="checkmark-sharp" color="success"></ion-icon>
+          <!-- <ion-icon name="checkmark-sharp" color="success"></ion-icon> -->
         </ion-item>
         <div class="error-container">
           <ng-container *ngFor="let validation of validation_messages.tel">
@@ -58,8 +58,8 @@
         </div>
         <ion-item>
           <ion-select labelPlacement="floating" formControlName="pieceType">
-            <div slot="label">Type de piece</div>
-            <ion-select-option value="nci">Numero carte d'identite</ion-select-option>
+            <div slot="label">Type de piéce</div>
+            <ion-select-option value="nci">Numéro carte d'identité</ion-select-option>
             <ion-select-option value="np">Permis de conduire</ion-select-option>
             <ion-select-option value="passport">Passe port</ion-select-option>
           </ion-select>
@@ -69,7 +69,7 @@
         </ion-item>
         <ion-item>
           <ion-input labelPlacement="floating" type="text" formControlName="pieceNum">
-            <div slot="label">Numero piece </div>
+            <div slot="label">Numéro piéce </div>
           </ion-input>
         </ion-item>
         <!-- <ion-item>
@@ -88,7 +88,7 @@
               </div>
             </ion-col>
             <ion-col size="6">
-              <ion-label>Verso du pièce</ion-label>
+              <ion-label>Verso pièce</ion-label>
               <div class="pieceView" (click)="takePhoto(1)">
                 <ion-button expand="block" fill="clear">
                   <ion-img [src]="photos[1].webviewPath"></ion-img>
@@ -97,7 +97,7 @@
             </ion-col>
           </ion-row>
         </ion-grid>
-        <ion-button type="submit" expand="block" [disabled]="userForm.invalid">Enregistrer</ion-button>
+        <ion-button type="submit" expand="block">Enrégistrer</ion-button>
       </ion-list>
     </form>
   </div>

@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { DatabaseService } from 'src/app/services/database.service';
 import { StructureDB } from 'src/app/services/structure-db';
+import { validation_messages } from 'src/app/services/validation.input';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-merchant',
@@ -14,6 +16,7 @@ import { StructureDB } from 'src/app/services/structure-db';
 export class MerchantPage implements OnInit {
   merchantForm!: FormGroup
   photos!: UserPhoto[];
+  validation_messages = validation_messages
   constructor(
     private fb: FormBuilder,
     private dbService: DatabaseService,
@@ -24,7 +27,7 @@ export class MerchantPage implements OnInit {
     this.merchantForm = this.fb.group({
       merchantCode: ['',[Validators.required]],
       merchantTitle: ['',[Validators.required]],
-      tel: ['',[Validators.required]],
+      tel: ['',[Validators.required,Validators.pattern(/^(221|00221|\+221)?(77|78|75|70|76|33)[0-9]{7}$/mg)]],
       commercialRegister: [''],
     })
     this.photos = [
@@ -50,16 +53,19 @@ export class MerchantPage implements OnInit {
     }
   }
   save(){
-    this.dbService.insertData(StructureDB.MERCHANT,this.merchantForm.value)
-      .then(() => {
-        console.log('record insert')
-        this.merchantForm.reset();
-        this.router.navigate(['/menu/merchant/list'])
-      })
-      .catch(e => console.log(JSON.stringify(e)))
+    if(this.merchantForm.valid){
+      this.dbService.insertData(StructureDB.MERCHANT,this.merchantForm.value)
+        .then(() => {
+          console.log('record insert')
+          this.merchantForm.reset();
+          this.router.navigate(['/menu/merchant/list'])
+        })
+        .catch(e => console.log(JSON.stringify(e)))
+      }
   }
-
 }
+
+// 
 export interface UserPhoto {
   filepath: string;
   webviewPath?: string;

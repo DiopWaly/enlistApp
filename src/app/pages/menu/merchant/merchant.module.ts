@@ -16,7 +16,7 @@ import { QRCodeModule } from 'angularx-qrcode';
     ReactiveFormsModule,
     IonicModule,
     MerchantPageRoutingModule,
-    QRCodeModule
+    QRCodeModule,
   ],
   declarations: [MerchantPage],
   providers: [Storage]

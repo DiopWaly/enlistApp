@@ -60,3 +60,26 @@
     font-family: 'Gilroy-Ultra-Light';
     font-weight: 600;
 }
+.aproposdeVous{
+    ion-card-content{
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-inline-start: 0;
+        padding-inline-end: 10px;
+        .iconAppropos{
+            text-align: center;
+            padding-top: .7rem;
+        }
+        .textAppropos{
+            text-align: left;
+            .star{
+                ion-icon{
+                    font-size: 1.3rem;
+                }
+                .goldStart{
+                    color: #fcd80f;
+                }
+            }
+        }
+    }
+}

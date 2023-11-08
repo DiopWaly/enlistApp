@@ -55,6 +55,7 @@ export class DatabaseService {
   }
   get = (table: string):Promise<any> => {
     let query = `Select * from ${table}`;
+    // let query = `delete from ${table} where id=10`;
     console.log(query);
     return this.db.executeSql(query, [])
   }

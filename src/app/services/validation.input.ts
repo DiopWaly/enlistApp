@@ -11,32 +11,40 @@ export const validation_messages = {
       { type: 'required', message: 'Obligatoire' }
     ],
     'lieunaissance': [
-      { type: 'required', message: 'Champs requis.' },
+      { type: 'required', message: 'Champs obligatoire.' },
       { type: 'pattern', message: 'En valide svp' }
     ],
     'tel': [
-      { type: 'required', message: 'Telephone is required.' },
-      { type: 'pattern', message: 'Enrer un numero tel valide !!!' }
+      { type: 'required', message: 'Téléphone est obligatoire.' },
+      { type: 'pattern', message: 'Enrer un numéro tel valide !!!' }
     ],
     'numpermis': [
-      { type: 'pattern', message: 'Entrer un numero de permis valide svp' }
+      { type: 'pattern', message: 'Entrer un numéro de permis valide svp' }
     ],
     'username': [
-      { type: 'pattern', message: 'Entrer un numero de permis valide svp' }
+      { type: 'pattern', message: 'Entrer un numéro de permis valide svp' }
     ],
     'adresse': [
-      { type: 'pattern', message: 'Entrer un numero de permis valide svp' }
+      { type: 'pattern', message: 'Entrer un numéro de permis valide svp' }
     ],
     'email': [
-      { type: 'required', message: 'Email is required.' },
+      { type: 'required', message: 'Email est obligatoire.' },
       { type: 'pattern', message: 'Enter a valid email.' }
     ],
     'password': [
-      { type: 'required', message: 'Password is required.' },
+      { type: 'required', message: 'Mot de passe obligatoire.' },
       { type: 'minlength', message: 'Password must be at least 6 characters long.' }
     ],
     'passwordcofirm': [
       { type: 'required', message: 'Password confirmation required.' },
       { type: 'minlength', message: 'Password must be at least 6 characters long.' }
-    ]
+    ],
+    'merchantTitle': [
+        { type: 'required', message: 'Intitulé obligatoire.' },
+        { type: 'pattern', message: 'Entrer un intitulé valide svp' }
+    ],
+    'merchantCode': [
+        { type: 'required', message: 'Code marchand obligatoire.' },
+        { type: 'pattern', message: 'Entrer un code marchand valide svp'}
+    ],
   };

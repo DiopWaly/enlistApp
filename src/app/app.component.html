@@ -17,7 +17,7 @@
             <!-- <ion-list-header>Inbox</ion-list-header>
             <ion-note>hi@ionicframework.com</ion-note> -->
             
-            <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+            <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index" mode="ios">
               <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
                 <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
                 <ion-label>{{ p.title }}</ion-label>
@@ -29,7 +29,7 @@
       </ion-content>
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
-    <ion-tabs>
+    <!-- <ion-tabs color="primary">
       <ion-tab-bar slot="bottom">
         <ion-tab-button tab="menu/home">
           <ion-icon name="home"></ion-icon>
@@ -44,6 +44,6 @@
           Marchand
         </ion-tab-button>
       </ion-tab-bar>
-    </ion-tabs>
+    </ion-tabs> -->
   </ion-split-pane>
 </ion-app>
