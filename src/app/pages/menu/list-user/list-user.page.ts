@@ -55,6 +55,11 @@ export class ListUserPage implements OnInit {
     this.userDetail = user
     this.userDetailSubject.next(true)
   }
+  showDetailUserTest(){
+    // this.userDetail = user
+    this.userDetailSubject.next(true)
+  }
+
   backToList(){
     this.userDetailSubject.next(false)
   }
@@ -70,6 +75,10 @@ export class ListUserPage implements OnInit {
             d.lastName.toLowerCase().indexOf(query) > -1 ||
             d.tel.toLowerCase().indexOf(query) > -1
     }))
+  }
+  didDismiss(event: any){
+    // console.log('event :',this.searchContent);
+    
   }
   // onIonInfinite(ev: any) {
   //   setTimeout(() => {

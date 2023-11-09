@@ -3,7 +3,12 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-buttons slot="end">
+    <ion-buttons slot="end" *ngIf="!(userDetailObs$ | async)">
+      <ion-button expand="block" fill="clear" shape="round" id="open-modal">
+        <ion-icon name="search-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end" *ngIf="!(userDetailObs$ | async)">
       <ion-back-button defaultHref="menu/home"></ion-back-button>
     </ion-buttons>
     <ion-title>Utilisateurs</ion-title>
@@ -15,10 +20,10 @@
     <!-- <ion-card-subtitle class="title">Awesome Subtitle</ion-card-subtitle> -->
     <!-- {{userRechercheObs$ | async | json}} -->
     <div *ngIf="(usersObs$ | async) && !(userDetailObs$ | async)">
-      <ion-searchbar placeholder="Search..." [debounce]="100" (ionInput)="handleInput($event)"></ion-searchbar>
+      <!-- <ion-searchbar placeholder="Search..." [debounce]="100" (ionInput)="handleInput($event)"></ion-searchbar> -->
       <ion-list lines="none" *ngIf="userRechercheObs$ | async as userObs">
         <!-- <ion-item class="Item" *ngFor="let user of users" (click)="showDetailUser(user)"> -->
-        <ion-item class="Item" *ngFor="let user of userObs" (click)="showDetailUser(user)">
+        <ion-item class="Item" *ngFor="let user of userObs">
           <ion-avatar>
             <img src="../../../../assets/images/user.jpg" />
           </ion-avatar>
@@ -27,8 +32,9 @@
             <p>{{user.tel}}</p>
           </ion-label>
           <svg class="syncIcon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M440.65 12.57l4 82.77A247.16 247.16 0 0 0 255.83 8C134.73 8 33.91 94.92 12.29 209.82A12 12 0 0 0 24.09 224h49.05a12 12 0 0 0 11.67-9.26 175.91 175.91 0 0 1 317-56.94l-101.46-4.86a12 12 0 0 0-12.57 12v47.41a12 12 0 0 0 12 12H500a12 12 0 0 0 12-12V12a12 12 0 0 0-12-12h-47.37a12 12 0 0 0-11.98 12.57zM255.83 432a175.61 175.61 0 0 1-146-77.8l101.8 4.87a12 12 0 0 0 12.57-12v-47.4a12 12 0 0 0-12-12H12a12 12 0 0 0-12 12V500a12 12 0 0 0 12 12h47.35a12 12 0 0 0 12-12.6l-4.15-82.57A247.17 247.17 0 0 0 255.83 504c121.11 0 221.93-86.92 243.55-201.82a12 12 0 0 0-11.8-14.18h-49.05a12 12 0 0 0-11.67 9.26A175.86 175.86 0 0 1 255.83 432z"/></svg>
-          <ion-button>
-            <ion-icon name="trash-outline"></ion-icon>
+          <ion-button (click)="showDetailUser(user)">
+            <!-- <ion-icon name="trash-outline"></ion-icon> -->
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="17" x="0" y="0" viewBox="0 0 682.667 682.667" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><defs><clipPath id="a" clipPathUnits="userSpaceOnUse"><path d="M0 512h512V0H0Z" fill="#ffffff" opacity="1" data-original="#000000"></path></clipPath></defs><g clip-path="url(#a)" transform="matrix(1.33333 0 0 -1.33333 0 682.667)"><path d="M0 0h-220c-22.092 0-40-17.908-40-40v-320c0-22.092 17.908-40 40-40h320c22.092 0 40 17.908 40 40v220" style="stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" transform="translate(275 415)" fill="none" stroke="#ffffff" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="none" stroke-opacity="" data-original="#000000" opacity="1" class=""></path><path d="m0 0-226.274-226.273-70.711-14.143 14.142 70.711L-56.569 56.569c7.81 7.81 20.474 7.81 28.284 0L0 28.284C7.81 20.474 7.81 7.811 0 0Z" style="stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" transform="translate(491.143 434.573)" fill="none" stroke="#ffffff" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="none" stroke-opacity="" data-original="#000000" opacity="1" class=""></path><path d="m0 0 56.568-56.568" style="stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" transform="translate(406.29 462.857)" fill="none" stroke="#ffffff" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="none" stroke-opacity="" data-original="#000000" opacity="1" class=""></path></g></g></svg>
           </ion-button>
         </ion-item>
       </ion-list>
@@ -46,11 +52,10 @@
           <h2>Papa Waly Diop</h2>
           <p>Boutiquier</p>
         </ion-label>
-        <!-- <ion-icon class="syncIcon" name="sync-outline"></ion-icon> -->
-        <!-- <i class="fas fa-sync fa-fw fa-2x fa-beat-fade" style="color: var(--example-color); --fa-animation-duration: 2s;"></i> -->
         <svg class="syncIcon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M440.65 12.57l4 82.77A247.16 247.16 0 0 0 255.83 8C134.73 8 33.91 94.92 12.29 209.82A12 12 0 0 0 24.09 224h49.05a12 12 0 0 0 11.67-9.26 175.91 175.91 0 0 1 317-56.94l-101.46-4.86a12 12 0 0 0-12.57 12v47.41a12 12 0 0 0 12 12H500a12 12 0 0 0 12-12V12a12 12 0 0 0-12-12h-47.37a12 12 0 0 0-11.98 12.57zM255.83 432a175.61 175.61 0 0 1-146-77.8l101.8 4.87a12 12 0 0 0 12.57-12v-47.4a12 12 0 0 0-12-12H12a12 12 0 0 0-12 12V500a12 12 0 0 0 12 12h47.35a12 12 0 0 0 12-12.6l-4.15-82.57A247.17 247.17 0 0 0 255.83 504c121.11 0 221.93-86.92 243.55-201.82a12 12 0 0 0-11.8-14.18h-49.05a12 12 0 0 0-11.67 9.26A175.86 175.86 0 0 1 255.83 432z"/></svg>
-        <ion-button>
-          <ion-icon name="trash-outline"></ion-icon>
+        <ion-button (click)="showDetailUserTest()">
+          <!-- <ion-icon name="create-outline"></ion-icon> -->
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="17" x="0" y="0" viewBox="0 0 682.667 682.667" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><defs><clipPath id="a" clipPathUnits="userSpaceOnUse"><path d="M0 512h512V0H0Z" fill="#ffffff" opacity="1" data-original="#000000"></path></clipPath></defs><g clip-path="url(#a)" transform="matrix(1.33333 0 0 -1.33333 0 682.667)"><path d="M0 0h-220c-22.092 0-40-17.908-40-40v-320c0-22.092 17.908-40 40-40h320c22.092 0 40 17.908 40 40v220" style="stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" transform="translate(275 415)" fill="none" stroke="#ffffff" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="none" stroke-opacity="" data-original="#000000" opacity="1" class=""></path><path d="m0 0-226.274-226.273-70.711-14.143 14.142 70.711L-56.569 56.569c7.81 7.81 20.474 7.81 28.284 0L0 28.284C7.81 20.474 7.81 7.811 0 0Z" style="stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" transform="translate(491.143 434.573)" fill="none" stroke="#ffffff" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="none" stroke-opacity="" data-original="#000000" opacity="1" class=""></path><path d="m0 0 56.568-56.568" style="stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" transform="translate(406.29 462.857)" fill="none" stroke="#ffffff" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="none" stroke-opacity="" data-original="#000000" opacity="1" class=""></path></g></g></svg>
         </ion-button>
       </ion-item>
     </ion-list>
@@ -64,7 +69,25 @@
       <ion-button expand="block" (click)="backToList()">Retour</ion-button>
     </div>
   </div>
+  <ion-modal #modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0,1]" mode="ios" (didDismiss)="didDismiss($event)">
+    <ng-template>
+      <ion-content>
+        <ion-searchbar placeholder="Search" [debounce]="100" (ionInput)="handleInput($event)"></ion-searchbar>
+        <ion-list *ngIf="userRechercheObs$ | async as userObs">
+          <ion-item *ngFor="let user of userObs">
+            <ion-avatar slot="start">
+              <ion-img src="../../../../assets/images/user.jpg"></ion-img>
+            </ion-avatar>
+            <ion-label>
+              <h2>{{user.firstName}} {{user.lastName}}</h2>
+              <p>{{user.tel}}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>
-<ion-footer>
+<ion-footer *ngIf="!(userDetailObs$ | async)">
   <ion-button [routerLink]="['/menu/user/add']" routerLinkActive="router-link-active"  expand="block">Ajout utilisateur</ion-button>
 </ion-footer>

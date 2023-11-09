@@ -47,5 +47,9 @@ export class ListMerchantPage implements OnInit {
             d.tel.toLowerCase().indexOf(query) > -1
     }))
   }
+  didDismiss(event: any){
+    // console.log('event :',this.searchContent);
+    
+  }
 
 }

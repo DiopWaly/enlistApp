@@ -99,5 +99,30 @@ ion-footer {
 .syncIcon{
     margin-right: 1rem;
 }
-
+// .modalContent{
+//     background-color: var(--secondary);
+//     height: 100%;
+//     width: 100%;
+// }
 // 
+ion-modal{
+    padding-top: 1rem;
+    ion-content{
+        --background: var(--secondary);
+        ion-list ion-item{
+            ion-label {
+                padding-left: 1.2rem;
+                h2 {
+                    font-family: 'Gilroy-Extra-Bold';
+                    font-weight: 600;
+                    letter-spacing: -0.02rem;
+                }
+        
+                p {
+        
+                    letter-spacing: -0.03rem;
+                }
+            }
+        }
+    }
+    }

@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
-
+  toDay!: Date
   constructor() { }
 
   ngOnInit() {
+    this.toDay = new Date();
+    console.log();
   }
 
 }

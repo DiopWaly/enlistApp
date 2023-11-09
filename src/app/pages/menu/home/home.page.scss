@@ -4,6 +4,9 @@
     height: 100%;
 }
 .header{
+    ion-grid{
+        padding-top: 0;
+    }
     ion-buttons{
         color: var(--primary);
     }
@@ -22,6 +25,7 @@
     .profileUser{
         padding-left: .3rem;
         padding-right: .3rem;
+        margin-bottom: .4rem;
         .hello{
             padding-left: 0;
             ion-note{
@@ -60,6 +64,10 @@
     font-family: 'Gilroy-Ultra-Light';
     font-weight: 600;
 }
+.menu-date{
+    font-family: 'Gilroy-BoldIt';
+    font-size: 0.9rem;
+}
 .aproposdeVous{
     ion-card-content{
         padding-top: 5px;
@@ -79,6 +87,30 @@
                 .goldStart{
                     color: #fcd80f;
                 }
+            }
+        }
+    }
+}
+.cardView{
+    // --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    ion-card-header{
+        padding-top: 10px;
+        padding-bottom: 7px;
+    }
+
+    ion-card-content{
+        padding-inline-start: 0;
+        padding-inline-end: 0;
+        padding-bottom: 5px;
+        ion-row{
+            font-family: 'Gilroy-Regular';
+            font-size: .9rem;
+            margin-bottom: 0.3rem;
+            .todayText{
+            }
+            .todayNum{
+                font-family: 'Gilroy-BoldIt';
+                // font-weight: 600;
             }
         }
     }

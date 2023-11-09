@@ -4,6 +4,11 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-buttons slot="end">
+      <ion-button expand="block" fill="clear" shape="round" id="open-modal">
+        <ion-icon name="search-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
       <ion-back-button defaultHref="menu/home"></ion-back-button>
     </ion-buttons>
     <ion-title>Marchands</ion-title>
@@ -13,7 +18,7 @@
 <ion-content [fullscreen]="true">
   <div class="mainContent" >
     <!-- <ion-card-subtitle class="title">Awesome Subtitle</ion-card-subtitle> -->
-    <ion-searchbar placeholder="Search..." [debounce]="100" (ionInput)="handleInput($event)"></ion-searchbar>
+    <!-- <ion-searchbar placeholder="Search..." [debounce]="100" (ionInput)="handleInput($event)"></ion-searchbar> -->
     <!-- <ion-list lines="none" *ngIf="merchantsObs$ | async"> -->
     <ion-list lines="none" *ngIf="merchantRechercheObs$ | async as merchantsOb">
       <!-- <ion-item class="Item" *ngFor="let merchant of merchants"> -->
@@ -26,11 +31,30 @@
           <p>{{merchant.tel}}</p>
         </ion-label>
         <ion-button>
-          <ion-icon name="trash-outline"></ion-icon>
+          <!-- <ion-icon name="trash-outline"></ion-icon> -->
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="17" x="0" y="0" viewBox="0 0 682.667 682.667" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><defs><clipPath id="a" clipPathUnits="userSpaceOnUse"><path d="M0 512h512V0H0Z" fill="#ffffff" opacity="1" data-original="#000000"></path></clipPath></defs><g clip-path="url(#a)" transform="matrix(1.33333 0 0 -1.33333 0 682.667)"><path d="M0 0h-220c-22.092 0-40-17.908-40-40v-320c0-22.092 17.908-40 40-40h320c22.092 0 40 17.908 40 40v220" style="stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" transform="translate(275 415)" fill="none" stroke="#ffffff" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="none" stroke-opacity="" data-original="#000000" opacity="1" class=""></path><path d="m0 0-226.274-226.273-70.711-14.143 14.142 70.711L-56.569 56.569c7.81 7.81 20.474 7.81 28.284 0L0 28.284C7.81 20.474 7.81 7.811 0 0Z" style="stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" transform="translate(491.143 434.573)" fill="none" stroke="#ffffff" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="none" stroke-opacity="" data-original="#000000" opacity="1" class=""></path><path d="m0 0 56.568-56.568" style="stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" transform="translate(406.29 462.857)" fill="none" stroke="#ffffff" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-dasharray="none" stroke-opacity="" data-original="#000000" opacity="1" class=""></path></g></g></svg>
         </ion-button>
       </ion-item>
     </ion-list>
-  </div>
+  </div>  
+  <ion-modal #modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0,1]" mode="ios" (didDismiss)="didDismiss($event)">
+    <ng-template>
+      <ion-content>
+        <ion-searchbar placeholder="Search" [debounce]="100" (ionInput)="handleInput($event)"></ion-searchbar>
+        <ion-list *ngIf="merchantRechercheObs$ | async as merchantsOb">
+          <ion-item *ngFor="let merchant of merchantsOb">
+            <ion-avatar slot="start">
+              <ion-img src="../../../../assets/images/user.jpg"></ion-img>
+            </ion-avatar>
+            <ion-label>
+              <h2>{{merchant.merchantTitle}}</h2>
+              <p>{{merchant.tel}}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>
 <ion-footer>
   <ion-button expand="block" [routerLink]="['/menu/merchant/add']" routerLinkActive="router-link-active">Ajout marchand</ion-button>

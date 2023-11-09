@@ -14,55 +14,59 @@
 
 <div class="detailProfil">
   <div class="header">
-    <span>Bienvenue</span>
-    <h1>Serigne SALIOU Ndione (As salih)</h1>
+    <!-- <span>Bienvenue</span> -->
+    <h1>{{user.firstName}} {{user.lastName}}</h1>
     <hr>
   </div>
-  <ion-list class="infos" lines="none">
-    <ion-item class="" lines="none">
-      <ion-label class="label" position="floating">NOM D’UTILISATEUR</ion-label>
-      <ion-input type="text" ngModel="As salih" id="edit">
-        <ion-icon name="pencil-outline" slot="end"></ion-icon>
-      </ion-input>
-    </ion-item>
-    <ion-item class="" lines="none">
-      <ion-label class="label" position="floating">MOT DE PASSE</ion-label>
-      <ion-input type="password" ngModel="As salih">
-        <ion-icon name="pencil-outline" slot="end"></ion-icon>
-      </ion-input>
-    </ion-item>
-    <ion-item class="" lines="none">
-      <ion-label class="label" position="floating">NUMÉRO DE TÉLÉPHONE</ion-label>
-      <ion-input type="text" ngModel="(+221) 77 700 90 90">
-        <ion-icon name="pencil-outline" slot="end"></ion-icon>
-      </ion-input>
-    </ion-item>
-    <ion-item class="" lines="none">
-      <ion-label class="label" position="floating">NOM</ion-label>
-      <ion-input type="text" ngModel="NDIONE">
-        <ion-icon name="pencil-outline" slot="end"></ion-icon>
-      </ion-input>
-    </ion-item>
-    <ion-item class="" lines="none">
+  <ion-list class="infos" lines="none" mode="ios">
+    <ion-item>
       <ion-label class="label" position="floating">PRÉNOM</ion-label>
-      <ion-input type="text" ngModel="SERIGNE SALIOU">
-        <ion-icon name="pencil-outline" slot="end"></ion-icon>
-      </ion-input>
-    </ion-item>
-    <ion-item class="" lines="none">
-      <ion-label class="label" position="floating">NUMÉRO PASSPORT / CIN</ion-label>
-      <ion-input type="text" ngModel="A00 120 100 02">
-        <ion-icon name="pencil-outline" slot="end"></ion-icon>
-      </ion-input>
-    </ion-item>
-    <ion-item class="" lines="none">
-      <ion-label class="label" position="floating">DATE ET LIEU DE NAISSANCE</ion-label>
-      <ion-input type="text" ngModel="03/03/1988 À DAKAR">
+      <ion-input type="text" formControlName="firstName">
         <ion-icon name="pencil-outline" slot="end"></ion-icon>
       </ion-input>
     </ion-item>
     <ion-item>
-      <ion-button expand="full" color="success" ><p>ENRÉGISTRER</p></ion-button>
+      <ion-label class="label" position="floating">NOM</ion-label>
+      <ion-input type="text" formControlName="lastName">
+        <ion-icon name="pencil-outline" slot="end"></ion-icon>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="label" position="floating">NUMÉRO DE TÉLÉPHONE</ion-label>
+      <ion-input type="number" formControlName="tel">
+        <ion-icon name="pencil-outline" slot="end"></ion-icon>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <!-- <ion-label class="label" position="floating">TYPE DE PIÉCE</ion-label>
+      <ion-input type="text" [(ngModel)]="user.pieceType">
+        <ion-icon name="pencil-outline" slot="end"></ion-icon>
+      </ion-input> -->
+      <ion-label class="label" position="floating">TYPE DE PIÉCE</ion-label>
+      <ion-select formControlName="pieceType">
+        <ion-select-option value="nci">Numéro carte d'identité</ion-select-option>
+        <ion-select-option value="np">Permis de conduire</ion-select-option>
+        <ion-select-option value="passport">Passe port</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label class="label" position="floating">NUMÉRO DE PIÉCE</ion-label>
+      <ion-input type="number" formControlName="pieceNum">
+        <ion-icon name="pencil-outline" slot="end"></ion-icon>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-row>
+        <ion-col size="6">
+          <ion-img src="../../../../assets/images/user.jpg"></ion-img>
+        </ion-col>
+        <ion-col size="6">
+          <ion-img src="../../../../assets/images/user.jpg"></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item>
+      <ion-button expand="full" color="success" mode="ios"><p>ENRÉGISTRER</p></ion-button>
     </ion-item>
   </ion-list>
 </div>

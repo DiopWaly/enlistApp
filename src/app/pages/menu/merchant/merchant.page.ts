@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { DatabaseService } from 'src/app/services/database.service';
 import { StructureDB } from 'src/app/services/structure-db';
+import { UtilsService } from 'src/app/services/utils.service';
 import { validation_messages } from 'src/app/services/validation.input';
 import Swal from 'sweetalert2';
 
@@ -20,6 +21,7 @@ export class MerchantPage implements OnInit {
   constructor(
     private fb: FormBuilder,
     private dbService: DatabaseService,
+    private utilsService: UtilsService,
     private router: Router,
   ) { }
 
@@ -61,6 +63,8 @@ export class MerchantPage implements OnInit {
           this.router.navigate(['/menu/merchant/list'])
         })
         .catch(e => console.log(JSON.stringify(e)))
+      }else{
+        this.utilsService.checkValidity(this.merchantForm)
       }
   }
 }
