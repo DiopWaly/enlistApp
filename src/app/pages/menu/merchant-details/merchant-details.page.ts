@@ -9,7 +9,7 @@ import { validation_messages } from 'src/app/services/validation.input';
 @Component({
   selector: 'app-merchant-details',
   templateUrl: './merchant-details.page.html',
-  styleUrls: ['./umerchant-details.page.scss'],
+  styleUrls: ['./merchant-details.page.scss'],
 })
 export class MerchantDetailsPage implements OnInit {
   @Input() user: any
