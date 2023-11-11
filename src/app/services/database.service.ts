@@ -6,7 +6,7 @@ import { StructureDB } from './structure-db';
   providedIn: 'root'
 })
 export class DatabaseService {
-  private db!: SQLiteObject;
+  public db!: SQLiteObject;
   constructor(private sqlite: SQLite) { }
   createOpenDatabase = () => {
     try {
@@ -68,12 +68,11 @@ export class DatabaseService {
     let query = 'SET '
     const keys = Object.keys(data)
     for(let i=0; i < keys.length-1; i++){
-       query = query.concat(keys[i]+' = '+data[`${keys[i]}`]+',')
+       query = query.concat(keys[i]+'=\''+data[`${keys[i]}`]+'\',')
       }
-    query = query.concat(keys[keys.length-1]+' = '+data[`${keys[keys.length-1]}`])
+    query = query.concat(keys[keys.length-1]+'=\''+data[`${keys[keys.length-1]}`]+'\'')
     console.log(`update ${table} ${query} where id=${id}`);
-    
-    return this.db.executeSql(`update ${table} ${query} where id=${id}`)
+    return this.db.executeSql(`update ${table} ${query} where id=${id}`,[])
   }
   close = () => {
     this.db.close().then(() => console.log('close db')).catch(err => console.log(JSON.stringify(err)))

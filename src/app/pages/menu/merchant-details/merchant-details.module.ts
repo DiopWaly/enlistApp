@@ -4,9 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { UserDetailsPageRoutingModule } from './user-details-routing.module';
+import { MerchantDetailsPageRoutingModule } from './merchant-details-routing.module';
 
-import { UserDetailsPage } from './user-details.page';
+import { MerchantDetailsPage } from './merchant-details.page';
 
 @NgModule({
   imports: [
@@ -14,8 +14,8 @@ import { UserDetailsPage } from './user-details.page';
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    UserDetailsPageRoutingModule
+    MerchantDetailsPageRoutingModule
   ],
-  declarations: [UserDetailsPage]
+  declarations: [MerchantDetailsPage]
 })
-export class UserDetailsPageModule {}
+export class MerchantDetailsPageModule {}

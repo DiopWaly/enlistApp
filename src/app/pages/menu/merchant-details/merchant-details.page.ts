@@ -7,11 +7,11 @@ import { UtilsService } from 'src/app/services/utils.service';
 import { validation_messages } from 'src/app/services/validation.input';
 
 @Component({
-  selector: 'app-user-details',
-  templateUrl: './user-details.page.html',
-  styleUrls: ['./user-details.page.scss'],
+  selector: 'app-merchant-details',
+  templateUrl: './merchant-details.page.html',
+  styleUrls: ['./umerchant-details.page.scss'],
 })
-export class UserDetailsPage implements OnInit {
+export class MerchantDetailsPage implements OnInit {
   @Input() user: any
   @Output() exitDetailUser = new EventEmitter<any>();
   private userEditSubject!: BehaviorSubject<boolean>;

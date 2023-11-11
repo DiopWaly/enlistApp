@@ -13,10 +13,10 @@
 <ion-content [fullscreen]="true">
   <div class="mainContent">
     <form [formGroup]="userForm" (ngSubmit)="save()">
-      <ion-list [inset]="true" mode="ios">
+      <ion-list [inset]="true" mode="ios" lines="none">
         <ion-item>
-          <ion-input labelPlacement="floating" type="text" formControlName="firstName">
-            <div slot="label">Prénom <ion-text color="danger">*</ion-text></div>
+          <ion-input labelPlacement="floating" type="text" formControlName="firstName" mode="ios">
+            <div slot="label" class="label">Prénom <ion-text color="danger">*</ion-text></div>
           </ion-input>
           <!-- <ion-icon name="checkmark-sharp" color="success"></ion-icon> -->
         </ion-item>
@@ -29,8 +29,8 @@
           </ng-container>
         </div>
         <ion-item>
-          <ion-input labelPlacement="floating" type="text" formControlName="lastName">
-            <div slot="label">Nom <ion-text color="danger">*</ion-text></div>
+          <ion-input labelPlacement="floating" type="text" formControlName="lastName" mode="ios">
+            <div slot="label" class="label">Nom <ion-text color="danger">*</ion-text></div>
           </ion-input>
           <!-- <ion-icon name="checkmark-sharp" color="success"></ion-icon> -->
         </ion-item>
@@ -43,8 +43,8 @@
           </ng-container>
         </div>
         <ion-item>
-          <ion-input labelPlacement="floating" type="number" formControlName="tel">
-            <div slot="label">Téléphone <ion-text color="danger">*</ion-text></div>
+          <ion-input labelPlacement="floating" type="tel" formControlName="tel">
+            <div slot="label" class="label">Téléphone <ion-text color="danger">*</ion-text></div>
           </ion-input>
           <!-- <ion-icon name="checkmark-sharp" color="success"></ion-icon> -->
         </ion-item>
@@ -57,8 +57,8 @@
           </ng-container>
         </div>
         <ion-item>
-          <ion-select labelPlacement="floating" formControlName="pieceType">
-            <div slot="label">Type de piéce</div>
+          <ion-select labelPlacement="floating" formControlName="pieceType" interface="popover" toggleIcon="add" expandedIcon="remove" mode="ios">
+            <div slot="label" class="label">Type de piéce</div>
             <ion-select-option value="nci">Numéro carte d'identité</ion-select-option>
             <ion-select-option value="np">Permis de conduire</ion-select-option>
             <ion-select-option value="passport">Passe port</ion-select-option>
@@ -69,7 +69,7 @@
         </ion-item>
         <ion-item>
           <ion-input labelPlacement="floating" type="text" formControlName="pieceNum">
-            <div slot="label">Numéro piéce </div>
+            <div slot="label" class="label">Numéro piéce </div>
           </ion-input>
         </ion-item>
         <!-- <ion-item>
@@ -80,7 +80,7 @@
         <ion-grid>
           <ion-row>
             <ion-col size="6">
-              <ion-label>Recto pièce</ion-label>
+              <ion-label class="label">Recto pièce</ion-label>
               <div class="pieceView" (click)="takePhoto(0)">
                 <ion-button expand="block" fill="clear">
                   <ion-img [src]="photos[0].webviewPath"></ion-img>
@@ -88,7 +88,7 @@
               </div>
             </ion-col>
             <ion-col size="6">
-              <ion-label>Verso pièce</ion-label>
+              <ion-label class="label">Verso pièce</ion-label>
               <div class="pieceView" (click)="takePhoto(1)">
                 <ion-button expand="block" fill="clear">
                   <ion-img [src]="photos[1].webviewPath"></ion-img>

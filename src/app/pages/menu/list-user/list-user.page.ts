@@ -17,7 +17,7 @@ export class ListUserPage implements OnInit {
     // {fistName: 'Moussa', lastName: 'Ly'},
     // {fistName: 'Malick', lastName: 'Fall'},
   ]
-  userDetail: any = 1;
+  userDetail: any;
   private usersSubject!: BehaviorSubject<boolean>
   usersObs$!: Observable<boolean>
   private userDetailSubject!: BehaviorSubject<boolean>
@@ -41,7 +41,7 @@ export class ListUserPage implements OnInit {
   listUser(){
     this.dbService.get(StructureDB.USER)
       .then((result) => {
-        for(let i=0; i < result.rows.length; i++){
+        for(let i=0; i < result.rows.length; i++){ 
           this.users[i] = result.rows.item(result.rows.length - 1 - i)
         }
         console.log('this.users :',this.users);
@@ -51,8 +51,8 @@ export class ListUserPage implements OnInit {
       })
       .catch(e => console.log(JSON.stringify(e)))
   }
-  showDetailUser(user: any){
-    this.userDetail = user
+  showDetailUser(user: any, index: number){
+    this.userDetail = {...user, index}
     this.userDetailSubject.next(true)
   }
   showDetailUserTest(){
@@ -60,13 +60,13 @@ export class ListUserPage implements OnInit {
     this.userDetailSubject.next(true)
   }
 
-  backToList(){
-    this.userDetailSubject.next(false)
-  }
-  testFab(){
-    console.log('fab');
+  // backToList(){
+  //   this.userDetailSubject.next(false)
+  // }
+  // testFab(){
+  //   console.log('fab');
     
-  }
+  // }
   handleInput(event: any) {
     const query = event.target.value.toLowerCase();
     // this.results = this.data.filter((d) => d.toLowerCase().indexOf(query) > -1);
@@ -80,10 +80,12 @@ export class ListUserPage implements OnInit {
     // console.log('event :',this.searchContent);
     
   }
-  // onIonInfinite(ev: any) {
-  //   setTimeout(() => {
-  //     (ev as InfiniteScrollCustomEvent).target.complete();
-  //   }, 500);
-  // }
+  backToList(data: any) {
+    const index = data.user.index;
+    delete data.user.index;
+    this.users[index] = data.user;
+    this.usersSubject.next(this.users);
+    this.userDetailSubject.next(data.value)
+  }
 }
 

@@ -1,7 +1,7 @@
 export const validation_messages = {
     'firstName': [
-      { type: 'required', message: 'Prenom est obligatoire.' },
-      { type: 'pattern', message: 'Entrer un prenom valide svp' }
+      { type: 'required', message: 'Prénom est obligatoire.' },
+      { type: 'pattern', message: 'Entrer un prénom valide svp' }
     ],
     'lastName': [
       { type: 'required', message: 'Nom est obligatoire.' },
