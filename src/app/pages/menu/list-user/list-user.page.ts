@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { InfiniteScrollCustomEvent } from '@ionic/angular';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { DatabaseService } from 'src/app/services/database.service';
@@ -27,9 +27,12 @@ export class ListUserPage implements OnInit {
   constructor(
     private router: Router,
     private dbService: DatabaseService,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
+    console.log('Resolver : ',this.activatedRoute.snapshot.data['user']);
+    
     this.usersSubject = new BehaviorSubject<boolean>(false)
     this.usersObs$ = this.usersSubject.asObservable()
     this.userDetailSubject = new BehaviorSubject<boolean>(false)

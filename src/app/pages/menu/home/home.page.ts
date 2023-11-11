@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,11 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
   toDay!: Date
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
     this.toDay = new Date();
-    console.log();
+    // console.log(this.route.snapshot.data['user']);
   }
 
 }
