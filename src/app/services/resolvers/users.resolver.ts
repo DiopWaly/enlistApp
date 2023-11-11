@@ -3,6 +3,7 @@ import { ActivatedRouteSnapshot,  ResolveFn, RouterStateSnapshot } from '@angula
 import { of, delay, Observable } from 'rxjs' 
 import { DatabaseService } from '../database.service';
 
+// Test resolver
 export const UsersResolver: ResolveFn<any> = (
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot,
